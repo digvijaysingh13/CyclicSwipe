@@ -13,6 +13,12 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 
+/**
+ *
+ * Auto scroll adapter handles the autoscrolling in bi-drection
+ * touching on screen delays the scroll time
+ *
+ * */
 
 private const val MaxSize = 20
 private const val SCROLL_DELAY:Long= 5*1000

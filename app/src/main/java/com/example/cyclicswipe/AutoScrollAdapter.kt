@@ -21,7 +21,7 @@ import androidx.viewpager.widget.ViewPager
  * */
 
 private const val MaxSize = 20
-private const val SCROLL_DELAY:Long= 5*1000
+private const val SCROLL_DELAY:Long= 10*1000
 
 class AutoScrollAdapter(private val item: Array<AutoScrollModel>, private val mViewPager: ViewPager, private val container: LinearLayout) :
     PagerAdapter(),
@@ -86,7 +86,7 @@ class AutoScrollAdapter(private val item: Array<AutoScrollModel>, private val mV
         val tv = iv.findViewById<TextView>(R.id.as_tv)
         tv.text = item[pos].name
         val im = iv.findViewById<ImageView>(R.id.as_iv)
-        im.setImageResource(item[pos].res)
+        loadImage(item[pos].url, im)
         iv.findViewById<Button>(R.id.as_btn).setOnTouchListener(this)
         container.addView(iv)
         return iv
@@ -206,4 +206,4 @@ class AutoScrollAdapter(private val item: Array<AutoScrollModel>, private val mV
 }
 
 
-class AutoScrollModel(val name: String, val res: Int)
+class AutoScrollModel(val name: String, val url: String)

@@ -8,18 +8,25 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/text_frag_iv"
+        android:id="@+id/as_iv"
         android:scaleType="fitXY"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text_frag_tv"
+        android:id="@+id/as_tv"
         android:text="1"
         android:gravity="center"
         android:textSize="30sp"
         android:textColor="@color/colorAccent"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/as_btn"
+        android:background="#00000000"
         />
 
 </FrameLayout>

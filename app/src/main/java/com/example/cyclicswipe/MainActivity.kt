@@ -1,11 +1,22 @@
 package com.example.cyclicswipe
 
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestBuilder
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.Request
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 
@@ -63,5 +74,38 @@ fun loadImage(url: String, iv: ImageView) {
         .networkPolicy(NetworkPolicy.OFFLINE)
         .into(iv)
 
+}
+
+
+fun loadImageG(url: String, iv: ImageView) {
+
+
+    Glide.with(iv.context)
+        .load(url)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .listener(object : RequestListener< Drawable>{
+            override fun onLoadFailed(
+                e: GlideException?,
+                model: Any?,
+                target: Target<Drawable>?,
+                isFirstResource: Boolean
+            ): Boolean {
+                e?.printStackTrace()
+                return false
+            }
+
+            override fun onResourceReady(
+                resource: Drawable?,
+                model: Any?,
+                target: Target<Drawable>?,
+                dataSource: DataSource?,
+                isFirstResource: Boolean
+            ): Boolean {
+                Log.d("Glide", "Image loaded ${dataSource?.name}")
+                return false
+            }
+
+        } )
+        .into(iv)
 }
 

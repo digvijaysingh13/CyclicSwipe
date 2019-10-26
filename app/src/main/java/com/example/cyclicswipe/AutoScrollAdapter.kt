@@ -86,7 +86,7 @@ class AutoScrollAdapter(private val item: Array<AutoScrollModel>, private val mV
         val tv = iv.findViewById<TextView>(R.id.as_tv)
         tv.text = item[pos].name
         val im = iv.findViewById<ImageView>(R.id.as_iv)
-        loadImage(item[pos].url, im)
+        loadImageG(item[pos].url, im)
         iv.findViewById<Button>(R.id.as_btn).setOnTouchListener(this)
         container.addView(iv)
         return iv

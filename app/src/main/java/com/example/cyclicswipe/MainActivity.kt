@@ -56,8 +56,11 @@ class MainActivity : AppCompatActivity() {
         val ll = findViewById<LinearLayout>(R.id.dot_container)
         val adp = AutoScrollAdapter(item, viewPager, ll)
 
-
+        val density = resources.displayMetrics.density
         adp.setCurrentItem()
+        viewPager.clipToPadding = false
+        viewPager.setPadding(0, 0, (46*density).toInt(), 0)
+        viewPager.pageMargin = (16*density).toInt()
 
 
     }
